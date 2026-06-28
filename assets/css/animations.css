@@ -1,0 +1,400 @@
+/* ==========================================================================
+   ANIMATIONS — CodeFlow
+   Keyframes, scroll reveals, micro-interactions.
+   All animations respect prefers-reduced-motion via the reset.css rule.
+   ========================================================================== */
+
+/* ------------------------------------------------------------------
+   1. KEYFRAME DEFINITIONS
+   ------------------------------------------------------------------ */
+
+/* Fade up (primary scroll reveal) */
+@keyframes fade-up {
+  from {
+    opacity:   0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in (opacity only) */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Fade down (entering from above) */
+@keyframes fade-down {
+  from {
+    opacity:   0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity:   1;
+    transform: translateY(0);
+  }
+}
+
+/* Scale up */
+@keyframes scale-in {
+  from {
+    opacity:   0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity:   1;
+    transform: scale(1);
+  }
+}
+
+/* Slide in from left */
+@keyframes slide-in-left {
+  from {
+    opacity:   0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity:   1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slide-in-right {
+  from {
+    opacity:   0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity:   1;
+    transform: translateX(0);
+  }
+}
+
+/* Pulse glow for dots/indicators */
+@keyframes pulse-dot {
+  0%,  100% { transform: scale(1);    opacity: 1;   }
+  50%        { transform: scale(1.35); opacity: 0.7; }
+}
+
+/* Float (gentle up/down) */
+@keyframes float {
+  0%,  100% { transform: translateY(0);   }
+  50%        { transform: translateY(-12px); }
+}
+
+/* Spin */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Gradient shift (for background decorations) */
+@keyframes gradient-shift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* Number count-up (driven by CSS animation on custom property) */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* Progress bar fill */
+@keyframes fill-bar {
+  from { width: 0%; }
+}
+
+/* Shimmer (loading skeleton) */
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+
+/* ------------------------------------------------------------------
+   2. SCROLL REVEAL — Base states
+   JS applies .is-visible to elements with .reveal when in view.
+   ------------------------------------------------------------------ */
+
+.reveal {
+  opacity:    0;
+  transform:  translateY(28px);
+  transition: opacity   var(--transition-slow),
+              transform var(--transition-slow);
+}
+
+.reveal.is-visible {
+  opacity:   1;
+  transform: translateY(0);
+}
+
+/* Variants */
+.reveal--left {
+  transform: translateX(-32px);
+}
+
+.reveal--right {
+  transform: translateX(32px);
+}
+
+.reveal--scale {
+  transform: scale(0.93);
+}
+
+.reveal--left.is-visible,
+.reveal--right.is-visible,
+.reveal--scale.is-visible {
+  transform: none;
+}
+
+/* Stagger delays — applied via data-delay attribute by JS */
+.reveal[data-delay="1"] { transition-delay: 80ms;  }
+.reveal[data-delay="2"] { transition-delay: 160ms; }
+.reveal[data-delay="3"] { transition-delay: 240ms; }
+.reveal[data-delay="4"] { transition-delay: 320ms; }
+.reveal[data-delay="5"] { transition-delay: 400ms; }
+.reveal[data-delay="6"] { transition-delay: 480ms; }
+
+/* ------------------------------------------------------------------
+   3. HERO ENTRANCE ANIMATIONS
+   ------------------------------------------------------------------ */
+
+.hero-animate-badge {
+  animation: fade-down 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+}
+
+.hero-animate-headline {
+  animation: fade-up 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.25s both;
+}
+
+.hero-animate-sub {
+  animation: fade-up 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+}
+
+.hero-animate-cta {
+  animation: fade-up 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.55s both;
+}
+
+.hero-animate-proof {
+  animation: fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.7s both;
+}
+
+.hero-animate-media {
+  animation: scale-in 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s both;
+}
+
+/* ------------------------------------------------------------------
+   4. FLOATING DECORATIONS
+   ------------------------------------------------------------------ */
+
+.float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-medium {
+  animation: float 4s ease-in-out infinite;
+}
+
+.float-fast {
+  animation: float 3s ease-in-out infinite;
+}
+
+.rotate-slow {
+  animation: spin 20s linear infinite;
+}
+
+/* ------------------------------------------------------------------
+   5. GRADIENT ANIMATION (Living background)
+   ------------------------------------------------------------------ */
+
+.gradient-animate {
+  background-size: 300% 300%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ------------------------------------------------------------------
+   6. MICRO-INTERACTIONS
+   ------------------------------------------------------------------ */
+
+/* Ripple effect on buttons */
+.btn--ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position:      absolute;
+  border-radius: var(--radius-full);
+  background:    rgba(255, 255, 255, 0.35);
+  transform:     scale(0);
+  animation:     ripple-expand 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-expand {
+  to {
+    transform: scale(4);
+    opacity:   0;
+  }
+}
+
+/* Hover lift utility */
+.hover-lift {
+  transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+}
+
+.hover-lift:hover {
+  transform:  translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ------------------------------------------------------------------
+   7. STAT COUNTER ANIMATION
+   ------------------------------------------------------------------ */
+
+.stat-animate {
+  animation: count-up 0.5s ease both;
+}
+
+/* ------------------------------------------------------------------
+   8. PROGRESS / LOADING
+   ------------------------------------------------------------------ */
+
+.skeleton {
+  background:            linear-gradient(90deg, var(--color-bg-alt) 25%, var(--color-border) 50%, var(--color-bg-alt) 75%);
+  background-size:       200% 100%;
+  animation:             shimmer 1.5s infinite;
+  border-radius:         var(--radius-md);
+}
+
+/* ------------------------------------------------------------------
+   9. TYPEWRITER CURSOR (decorative)
+   ------------------------------------------------------------------ */
+
+.typewriter-cursor::after {
+  content:           '|';
+  color:             var(--color-mocha);
+  font-weight:       var(--weight-regular);
+  animation:         blink-cursor 1s step-end infinite;
+  margin-left:       2px;
+}
+
+@keyframes blink-cursor {
+  0%,  100% { opacity: 1; }
+  50%        { opacity: 0; }
+}
+
+/* ------------------------------------------------------------------
+   10. PAGE TRANSITION OVERLAY
+   ------------------------------------------------------------------ */
+
+.page-transition {
+  position:   fixed;
+  inset:      0;
+  background: var(--color-mocha);
+  z-index:    var(--z-modal);
+  transform:  translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition.is-entering {
+  transform: translateY(0);
+}
+
+.page-transition.is-exiting {
+  transform: translateY(-100%);
+}
+
+/* ------------------------------------------------------------------
+   11. GRADIENT TEXT ANIMATION (Hero)
+   ------------------------------------------------------------------ */
+
+.text-gradient-animate {
+  background: linear-gradient(135deg, var(--color-mocha) 0%, var(--color-blue-dark) 50%, var(--color-mocha-light) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 5s ease-in-out infinite;
+}
+
+/* ------------------------------------------------------------------
+   12. NAV LINK UNDERLINE ANIMATION
+   ------------------------------------------------------------------ */
+
+.nav-underline {
+  position:   relative;
+  display:    inline-block;
+}
+
+.nav-underline::after {
+  content:          '';
+  position:         absolute;
+  bottom:           -2px;
+  left:             0;
+  width:            0%;
+  height:           2px;
+  background:       linear-gradient(90deg, var(--color-mocha), var(--color-blue-dark));
+  border-radius:    var(--radius-full);
+  transition:       width var(--transition-base);
+}
+
+.nav-underline:hover::after,
+.nav-underline[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------
+   13. ICON SPIN ON HOVER
+   ------------------------------------------------------------------ */
+
+.icon-spin-hover svg,
+.icon-spin-hover span {
+  transition: transform var(--transition-slow);
+}
+
+.icon-spin-hover:hover svg,
+.icon-spin-hover:hover span {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* ------------------------------------------------------------------
+   14. CARD SHIMMER HIGHLIGHT
+   ------------------------------------------------------------------ */
+
+.card-shimmer {
+  position:   relative;
+  overflow:   hidden;
+}
+
+.card-shimmer::after {
+  content:    '';
+  position:   absolute;
+  top:        -50%;
+  left:       -75%;
+  width:      50%;
+  height:     200%;
+  background: linear-gradient(
+    to right,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.15) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform:  rotate(-20deg);
+  opacity:    0;
+  transition: opacity 0.1s ease;
+}
+
+.card-shimmer:hover::after {
+  opacity:    1;
+  animation:  shimmer-slide 0.75s ease forwards;
+}
+
+@keyframes shimmer-slide {
+  from { left: -75%; }
+  to   { left: 150%; }
+}
