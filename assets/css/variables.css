@@ -1,0 +1,177 @@
+/* ==========================================================================
+   DESIGN TOKEN SYSTEM — CodeFlow SaaS Landing Page
+   All design decisions live here. No hardcoded values elsewhere.
+   ========================================================================== */
+
+:root {
+  /* ------------------------------------------------------------------
+     BRAND COLORS
+     Derived from: Mocha Mousse #A5856F, Ethereal Blue #A0D4E0, Moonlit Grey #F2F0EA
+  ------------------------------------------------------------------ */
+
+  /* Primary — Mocha Mousse (stability, warmth, authority) */
+  --color-mocha:        #A5856F;
+  --color-mocha-dark:   #7A5C48;   /* darkened ~20% — text on light bg */
+  --color-mocha-deeper: #5C3F2E;   /* deepest — headings, high contrast */
+  --color-mocha-light:  #C9AA96;   /* lightened — hover tints, borders */
+  --color-mocha-pale:   #EDE3DC;   /* very pale — card backgrounds, tags */
+
+  /* Secondary — Ethereal Blue (trust, clarity, highlights) */
+  --color-blue:         #A0D4E0;
+  --color-blue-dark:    #5BABB9;   /* darkened — links, active states */
+  --color-blue-deeper:  #2E7D8A;   /* deepest blue — contrast text on white */
+  --color-blue-light:   #D0EAEF;   /* lightened — hover glows */
+  --color-blue-pale:    #EAF5F8;   /* very pale — section backgrounds */
+
+  /* Neutrals — derived from Moonlit Grey #F2F0EA */
+  --color-bg:           #F2F0EA;   /* base page background */
+  --color-bg-alt:       #E9E6DE;   /* slightly deeper — section alternation */
+  --color-bg-card:      #FFFFFF;   /* card surfaces */
+  --color-bg-dark:      #2A2118;   /* near-black from mocha family */
+  --color-bg-dark-alt:  #3A2F24;   /* slightly lighter dark — footer, dark sections */
+
+  /* Text */
+  --color-text-primary:   #3D2B1F;  /* deep mocha-derived dark — body text */
+  --color-text-secondary: #7A6558;  /* muted mocha — supporting text */
+  --color-text-muted:     #A39183;  /* very muted — placeholders, captions */
+  --color-text-inverse:   #F2F0EA;  /* for text on dark backgrounds */
+  --color-text-link:      #2E7D8A;  /* accessible blue for links */
+
+  /* State Colors */
+  --color-success:      #3D7A5C;
+  --color-success-bg:   #E8F4EE;
+  --color-error:        #C0392B;
+  --color-error-bg:     #FAEAEA;
+  --color-warning:      #B57E2E;
+  --color-warning-bg:   #FDF3E3;
+  --color-focus:        #2E7D8A;   /* consistent focus ring */
+
+  /* Utility */
+  --color-white:        #FFFFFF;
+  --color-border:       #D6CFCA;   /* subtle border */
+  --color-border-dark:  #4A3F36;   /* border on dark backgrounds */
+  --color-overlay:      rgba(42, 33, 24, 0.7); /* modal/nav overlay */
+
+  /* ------------------------------------------------------------------
+     TYPOGRAPHY
+  ------------------------------------------------------------------ */
+
+  --font-display:  'Montserrat', sans-serif;  /* headlines, UI labels */
+  --font-body:     'Roboto', sans-serif;      /* body copy, forms */
+
+  /* Fluid Type Scale — clamp(min, preferred, max) */
+  --text-xs:    clamp(0.75rem,   1.5vw,  0.875rem);  /* 12–14px */
+  --text-sm:    clamp(0.875rem,  2vw,    1rem);       /* 14–16px */
+  --text-base:  clamp(1rem,      2.5vw,  1.125rem);   /* 16–18px */
+  --text-lg:    clamp(1.125rem,  3vw,    1.375rem);   /* 18–22px */
+  --text-xl:    clamp(1.375rem,  4vw,    1.75rem);    /* 22–28px */
+  --text-2xl:   clamp(1.75rem,   5vw,    2.5rem);     /* 28–40px */
+  --text-3xl:   clamp(2.25rem,   7vw,    3.5rem);     /* 36–56px */
+  --text-hero:  clamp(2.75rem,   10vw,   5rem);       /* 44–80px */
+
+  /* Font Weights */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+
+  /* Line Heights */
+  --leading-tight:  1.2;
+  --leading-snug:   1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed:1.75;
+
+  /* Letter Spacing */
+  --tracking-tight:  -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.05em;
+  --tracking-wider:   0.1em;
+
+  /* ------------------------------------------------------------------
+     SPACING — 8px base grid
+  ------------------------------------------------------------------ */
+
+  --space-1:   0.25rem;   /*  4px */
+  --space-2:   0.5rem;    /*  8px */
+  --space-3:   0.75rem;   /* 12px */
+  --space-4:   1rem;      /* 16px */
+  --space-5:   1.25rem;   /* 20px */
+  --space-6:   1.5rem;    /* 24px */
+  --space-8:   2rem;      /* 32px */
+  --space-10:  2.5rem;    /* 40px */
+  --space-12:  3rem;      /* 48px */
+  --space-16:  4rem;      /* 64px */
+  --space-20:  5rem;      /* 80px */
+  --space-24:  6rem;      /* 96px */
+  --space-32:  8rem;      /* 128px */
+
+  /* ------------------------------------------------------------------
+     LAYOUT
+  ------------------------------------------------------------------ */
+
+  --container-max:     1200px;
+  --container-padding: clamp(1rem, 5vw, 3rem);
+  --section-padding:   clamp(3rem, 8vw, 6rem);
+  --nav-height:        72px;
+
+  /* ------------------------------------------------------------------
+     BORDERS & RADIUS
+  ------------------------------------------------------------------ */
+
+  --radius-xs:   2px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+  --radius-full: 9999px;
+  --border-width: 1px;
+
+  /* ------------------------------------------------------------------
+     SHADOWS — Mocha-tinted depth
+  ------------------------------------------------------------------ */
+
+  --shadow-xs:  0 1px 2px  rgba(165, 133, 111, 0.08);
+  --shadow-sm:  0 1px 3px  rgba(165, 133, 111, 0.12), 0 1px 2px rgba(165, 133, 111, 0.08);
+  --shadow-md:  0 4px 16px rgba(165, 133, 111, 0.15), 0 2px 6px  rgba(165, 133, 111, 0.1);
+  --shadow-lg:  0 8px 32px rgba(165, 133, 111, 0.2),  0 4px 12px rgba(165, 133, 111, 0.12);
+  --shadow-xl:  0 16px 48px rgba(165, 133, 111, 0.25), 0 8px 24px rgba(165, 133, 111, 0.15);
+  --shadow-glow-blue: 0 0 20px rgba(160, 212, 224, 0.4);
+  --shadow-glow-mocha: 0 0 20px rgba(165, 133, 111, 0.35);
+
+  /* ------------------------------------------------------------------
+     TRANSITIONS
+  ------------------------------------------------------------------ */
+
+  --transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base:   250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:   400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ------------------------------------------------------------------
+     Z-INDEX SCALE
+  ------------------------------------------------------------------ */
+
+  --z-below:   -1;
+  --z-base:     0;
+  --z-raised:   10;
+  --z-dropdown: 50;
+  --z-nav:      100;
+  --z-modal:    200;
+  --z-toast:    300;
+}
+
+/* Dark mode token overrides (if prefers-color-scheme: dark) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:            #1E1710;
+    --color-bg-alt:        #251C13;
+    --color-bg-card:       #2A2118;
+    --color-text-primary:  #EDE3DC;
+    --color-text-secondary:#C9AA96;
+    --color-text-muted:    #9A8070;
+    --color-border:        #3A2F24;
+    --shadow-md:  0 4px 16px rgba(0, 0, 0, 0.4), 0 2px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg:  0 8px 32px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.35);
+  }
+}

@@ -1,0 +1,222 @@
+/* ==========================================================================
+   TYPOGRAPHY SYSTEM — CodeFlow
+   All type styles using design tokens. No hardcoded values.
+   ========================================================================== */
+
+/* ------------------------------------------------------------------
+   1. GLOBAL TYPE DEFAULTS
+   ------------------------------------------------------------------ */
+
+body {
+  font-family:  var(--font-body);
+  font-size:    var(--text-base);
+  font-weight:  var(--weight-regular);
+  line-height:  var(--leading-normal);
+  color:        var(--color-text-primary);
+}
+
+/* ------------------------------------------------------------------
+   2. HEADING SYSTEM
+   ------------------------------------------------------------------ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family:  var(--font-display);
+  font-weight:  var(--weight-bold);
+  line-height:  var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color:        var(--color-text-primary);
+}
+
+h1 { font-size: var(--text-hero);  }
+h2 { font-size: var(--text-3xl);   }
+h3 { font-size: var(--text-2xl);   }
+h4 { font-size: var(--text-xl);    }
+h5 { font-size: var(--text-lg);    }
+h6 { font-size: var(--text-base);  }
+
+/* ------------------------------------------------------------------
+   3. UTILITY CLASSES — apply anywhere
+   ------------------------------------------------------------------ */
+
+/* Display / Hero */
+.text-hero     { font-size: var(--text-hero);  font-family: var(--font-display); font-weight: var(--weight-bold); line-height: var(--leading-tight); letter-spacing: var(--tracking-tight); }
+.text-3xl      { font-size: var(--text-3xl);   }
+.text-2xl      { font-size: var(--text-2xl);   }
+.text-xl       { font-size: var(--text-xl);    }
+.text-lg       { font-size: var(--text-lg);    }
+.text-base     { font-size: var(--text-base);  }
+.text-sm       { font-size: var(--text-sm);    }
+.text-xs       { font-size: var(--text-xs);    }
+
+/* Weight */
+.font-regular  { font-weight: var(--weight-regular);  }
+.font-medium   { font-weight: var(--weight-medium);   }
+.font-semibold { font-weight: var(--weight-semibold); }
+.font-bold     { font-weight: var(--weight-bold);     }
+
+/* Family */
+.font-display  { font-family: var(--font-display); }
+.font-body     { font-family: var(--font-body);    }
+
+/* Color */
+.text-primary   { color: var(--color-text-primary);   }
+.text-secondary { color: var(--color-text-secondary); }
+.text-muted     { color: var(--color-text-muted);     }
+.text-inverse   { color: var(--color-text-inverse);   }
+.text-mocha     { color: var(--color-mocha);          }
+.text-blue      { color: var(--color-blue-dark);      }
+.text-link      { color: var(--color-text-link);      }
+.text-success   { color: var(--color-success);        }
+.text-error     { color: var(--color-error);          }
+
+/* Alignment */
+.text-left   { text-align: left;   }
+.text-center { text-align: center; }
+.text-right  { text-align: right;  }
+
+/* Leading */
+.leading-tight   { line-height: var(--leading-tight);   }
+.leading-snug    { line-height: var(--leading-snug);    }
+.leading-normal  { line-height: var(--leading-normal);  }
+.leading-relaxed { line-height: var(--leading-relaxed); }
+
+/* Tracking */
+.tracking-tight  { letter-spacing: var(--tracking-tight);  }
+.tracking-wide   { letter-spacing: var(--tracking-wide);   }
+.tracking-wider  { letter-spacing: var(--tracking-wider);  }
+
+/* ------------------------------------------------------------------
+   4. BODY COPY & PARAGRAPH STYLES
+   ------------------------------------------------------------------ */
+
+p {
+  font-size:   var(--text-base);
+  line-height: var(--leading-relaxed);
+  color:       var(--color-text-secondary);
+  max-width:   65ch; /* optimal reading width */
+}
+
+/* Lead / intro paragraph */
+.lead {
+  font-size:   var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color:       var(--color-text-secondary);
+  font-weight: var(--weight-regular);
+}
+
+/* Small caption text */
+.caption {
+  font-size:      var(--text-xs);
+  line-height:    var(--leading-normal);
+  color:          var(--color-text-muted);
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ------------------------------------------------------------------
+   5. LINKS
+   ------------------------------------------------------------------ */
+
+a {
+  color:       var(--color-text-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition:  color var(--transition-fast), opacity var(--transition-fast);
+}
+
+a:hover {
+  color:   var(--color-blue-deeper);
+  opacity: 0.85;
+}
+
+a:focus-visible {
+  outline:        2px solid var(--color-focus);
+  outline-offset: 3px;
+  border-radius:  var(--radius-xs);
+}
+
+/* ------------------------------------------------------------------
+   6. SECTION LABELS (eyebrow / overline)
+   ------------------------------------------------------------------ */
+
+.eyebrow {
+  display:        inline-block;
+  font-family:    var(--font-display);
+  font-size:      var(--text-xs);
+  font-weight:    var(--weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color:          var(--color-mocha);
+  margin-bottom:  var(--space-4);
+}
+
+.eyebrow--blue {
+  color: var(--color-blue-dark);
+}
+
+/* ------------------------------------------------------------------
+   7. HIGHLIGHT / GRADIENT TEXT
+   ------------------------------------------------------------------ */
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-mocha) 0%, var(--color-blue-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient--warm {
+  background: linear-gradient(135deg, var(--color-mocha-deeper) 0%, var(--color-mocha) 60%, var(--color-mocha-light) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ------------------------------------------------------------------
+   8. SECTION HEADER BLOCK (reusable)
+   ------------------------------------------------------------------ */
+
+.section-header {
+  text-align:    center;
+  margin-bottom: var(--space-16);
+  max-width:     640px;
+  margin-left:   auto;
+  margin-right:  auto;
+}
+
+.section-header h2 {
+  margin-bottom: var(--space-4);
+}
+
+.section-header p {
+  margin-left:  auto;
+  margin-right: auto;
+  font-size:    var(--text-lg);
+}
+
+/* ------------------------------------------------------------------
+   9. CODE / MONOSPACE
+   ------------------------------------------------------------------ */
+
+code {
+  font-family:    'Courier New', Courier, monospace;
+  font-size:      0.875em;
+  background:     var(--color-mocha-pale);
+  color:          var(--color-mocha-deeper);
+  padding:        0.1em 0.4em;
+  border-radius:  var(--radius-sm);
+  border:         var(--border-width) solid var(--color-mocha-light);
+}
+
+/* ------------------------------------------------------------------
+   10. BLOCKQUOTE / TESTIMONIAL
+   ------------------------------------------------------------------ */
+
+blockquote {
+  font-size:     var(--text-lg);
+  font-style:    italic;
+  line-height:   var(--leading-relaxed);
+  color:         var(--color-text-secondary);
+  border-left:   3px solid var(--color-mocha);
+  padding-left:  var(--space-6);
+  margin:        var(--space-8) 0;
+}

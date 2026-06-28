@@ -1,0 +1,336 @@
+/* ==========================================================================
+   LAYOUT SYSTEM — CodeFlow
+   Grid + Flexbox macro layout. Mobile-first throughout.
+   ========================================================================== */
+
+/* ------------------------------------------------------------------
+   1. CONTAINER — centred, max-width wrapper
+   ------------------------------------------------------------------ */
+
+.container {
+  width:       100%;
+  max-width:   var(--container-max);
+  margin-left:  auto;
+  margin-right: auto;
+  padding-left:  var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container--narrow {
+  max-width: 800px;
+}
+
+.container--wide {
+  max-width: 1400px;
+}
+
+/* ------------------------------------------------------------------
+   2. SECTION SPACING
+   ------------------------------------------------------------------ */
+
+section {
+  padding-top:    var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.section--dark {
+  background-color: var(--color-bg-dark);
+  color:            var(--color-text-inverse);
+}
+
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+.section--blue-tint {
+  background-color: var(--color-blue-pale);
+}
+
+/* ------------------------------------------------------------------
+   3. GRID SYSTEMS
+   ------------------------------------------------------------------ */
+
+/* Auto-fit card grid (main workhorse) */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;         /* mobile: single col */
+  gap:     var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* 2-column split layout */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}
+
+/* 3-column layout */
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 4-column layout */
+.grid-4 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Work showcase grid (masonry-feel) */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .work-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+    /* NO grid-auto-rows — let content determine height */
+  }
+
+  .work-grid .card--featured {
+    grid-column: span 2;
+  }
+
+  .work-grid .card--featured .work-card__image-wrapper {
+    min-height: 300px;
+  }
+}
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ------------------------------------------------------------------
+   4. FLEXBOX UTILITIES
+   ------------------------------------------------------------------ */
+
+.flex         { display: flex; }
+.flex-col     { display: flex; flex-direction: column; }
+.flex-wrap    { flex-wrap: wrap; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-start   { display: flex; align-items: flex-start; }
+.flex-end     { display: flex; align-items: center; justify-content: flex-end; }
+.items-center { align-items: center; }
+.items-start  { align-items: flex-start; }
+.items-end    { align-items: flex-end; }
+.justify-center  { justify-content: center; }
+.justify-between { justify-content: space-between; }
+
+.gap-2  { gap: var(--space-2); }
+.gap-3  { gap: var(--space-3); }
+.gap-4  { gap: var(--space-4); }
+.gap-6  { gap: var(--space-6); }
+.gap-8  { gap: var(--space-8); }
+
+/* ------------------------------------------------------------------
+   5. STACK (vertical rhythm helper)
+   ------------------------------------------------------------------ */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack > * + * {
+  margin-top: var(--space-4);
+}
+
+.stack--sm > * + * { margin-top: var(--space-2); }
+.stack--md > * + * { margin-top: var(--space-6); }
+.stack--lg > * + * { margin-top: var(--space-8); }
+
+/* ------------------------------------------------------------------
+   6. CLUSTER (horizontal wrapping group)
+   ------------------------------------------------------------------ */
+
+.cluster {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       var(--space-3);
+}
+
+.cluster--center {
+  justify-content: center;
+}
+
+/* ------------------------------------------------------------------
+   7. SPACING UTILITIES
+   ------------------------------------------------------------------ */
+
+.mt-auto { margin-top: auto; }
+.mb-4    { margin-bottom: var(--space-4); }
+.mb-6    { margin-bottom: var(--space-6); }
+.mb-8    { margin-bottom: var(--space-8); }
+.mb-12   { margin-bottom: var(--space-12); }
+.mb-16   { margin-bottom: var(--space-16); }
+.mt-4    { margin-top: var(--space-4); }
+.mt-6    { margin-top: var(--space-6); }
+.mt-8    { margin-top: var(--space-8); }
+.mt-12   { margin-top: var(--space-12); }
+
+.pt-0    { padding-top: 0; }
+
+/* ------------------------------------------------------------------
+   8. DISPLAY UTILITIES
+   ------------------------------------------------------------------ */
+
+.hidden         { display: none; }
+.block          { display: block; }
+.inline-block   { display: inline-block; }
+.w-full         { width: 100%; }
+.h-full         { height: 100%; }
+.relative       { position: relative; }
+.absolute       { position: absolute; }
+.overflow-hidden{ overflow: hidden; }
+
+/* ------------------------------------------------------------------
+   9. HERO LAYOUT
+   ------------------------------------------------------------------ */
+
+.hero {
+  min-height:      100svh;
+  display:         grid;
+  place-items:     center;
+  padding-top:     calc(var(--nav-height) + var(--space-16));
+  padding-bottom:  var(--space-16);
+  position:        relative;
+  overflow:        hidden;
+}
+
+.hero__inner {
+  text-align: center;
+  max-width:  860px;
+  margin:     0 auto;
+}
+
+.hero__media {
+  margin-top:    var(--space-12);
+  border-radius: var(--radius-xl);
+  overflow:      hidden;
+  box-shadow:    var(--shadow-xl);
+}
+
+/* ------------------------------------------------------------------
+   10. TWO-COLUMN FEATURE ROW
+   ------------------------------------------------------------------ */
+
+.feature-row {
+  display:        grid;
+  grid-template-columns: 1fr;
+  gap:            var(--space-12);
+  align-items:    center;
+  padding-top:    var(--space-12);
+  padding-bottom: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .feature-row {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-20);
+  }
+
+  .feature-row--reverse .feature-row__visual {
+    order: -1;
+  }
+}
+
+.feature-row__visual {
+  border-radius: var(--radius-xl);
+  overflow:      hidden;
+  box-shadow:    var(--shadow-lg);
+}
+
+/* ------------------------------------------------------------------
+   11. DIVIDER
+   ------------------------------------------------------------------ */
+
+.divider {
+  border:     none;
+  border-top: var(--border-width) solid var(--color-border);
+  margin:     var(--space-16) 0;
+}
+
+.divider--dark {
+  border-top-color: var(--color-border-dark);
+}
+
+/* ------------------------------------------------------------------
+   12. CONTACT LAYOUT
+   ------------------------------------------------------------------ */
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .contact-layout {
+    grid-template-columns: 1fr 1.6fr;
+    align-items: start;
+  }
+}
