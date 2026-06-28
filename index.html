@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- =====================================================================
+       SEO & Meta
+  ====================================================================== -->
+  <title>CodeFlow — AI-Powered Code Review for Developer Teams</title>
+  <meta name="description" content="CodeFlow helps engineering teams ship faster with AI-assisted code reviews, real-time collaboration, and automated quality checks. Start your free trial today." />
+  <meta name="keywords" content="code review, AI code review, developer tools, engineering productivity, code quality, pull request automation" />
+  <meta name="author" content="CodeFlow" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://codeflow.dev/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://codeflow.dev/" />
+  <meta property="og:title"       content="CodeFlow — AI-Powered Code Review for Developer Teams" />
+  <meta property="og:description" content="Ship faster with AI-assisted code reviews, real-time collaboration, and automated quality checks." />
+  <meta property="og:image"       content="https://codeflow.dev/assets/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@codeflowdev" />
+  <meta name="twitter:title"       content="CodeFlow — AI-Powered Code Review" />
+  <meta name="twitter:description" content="Ship faster with AI-assisted code reviews and automated quality checks." />
+
+  <!-- =====================================================================
+       Performance: Preconnect to Google Fonts
+  ====================================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- =====================================================================
+       Google Fonts: Montserrat (display) + Roboto (body)
+       Weights: 400, 500, 600, 700
+  ====================================================================== -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- =====================================================================
+       Styles — load order: variables → reset → type → layout → components → animations → main
+       (main.css @imports all in correct order)
+  ====================================================================== -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- Favicon (emoji fallback) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+
+<body>
+
+  <!-- ==================================================================
+       SCROLL PROGRESS INDICATOR
+  =================================================================== -->
+  <div id="scroll-progress" class="scroll-progress" aria-hidden="true" role="presentation"></div>
+
+
+  <!-- ==================================================================
+       HEADER + PRIMARY NAVIGATION
+  =================================================================== -->
+  <header id="site-header" class="site-header" role="banner">
+    <div class="container">
+      <nav class="nav__inner" aria-label="Primary navigation">
+
+        <!-- Logo -->
+        <a href="#hero" class="nav__logo" aria-label="CodeFlow — back to top" data-nav-link>
+          <span class="nav__logo-mark" aria-hidden="true">CF</span>
+          <span>CodeFlow</span>
+        </a>
+
+        <!-- Desktop navigation links -->
+        <ul class="nav__links" role="list">
+          <li>
+            <a href="#about"        data-nav-link aria-current="page">Features</a>
+          </li>
+          <li>
+            <a href="#pricing"      data-nav-link>Pricing</a>
+          </li>
+          <li>
+            <a href="#work"         data-nav-link>Showcase</a>
+          </li>
+          <li>
+            <a href="#testimonials" data-nav-link>Reviews</a>
+          </li>
+          <li>
+            <a href="#contact"      data-nav-link>Contact</a>
+          </li>
+        </ul>
+
+        <!-- Desktop CTA buttons -->
+        <div class="nav__cta" aria-label="Account actions">
+          <button type="button" class="btn btn--ghost btn--sm" id="nav-signin-btn" aria-haspopup="dialog" aria-controls="signin-modal">Sign In</button>
+          <a href="#pricing" class="btn btn--primary btn--sm" data-nav-link>Start Free Trial</a>
+        </div>
+
+        <!-- Hamburger button (mobile only) -->
+        <button
+          id="nav-hamburger"
+          class="nav__hamburger"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-mobile-menu"
+        >
+          <span class="nav__hamburger-line" aria-hidden="true"></span>
+          <span class="nav__hamburger-line" aria-hidden="true"></span>
+          <span class="nav__hamburger-line" aria-hidden="true"></span>
+        </button>
+
+      </nav><!-- /nav -->
+    </div><!-- /container -->
+
+    <!-- Mobile slide-down menu -->
+    <div id="nav-mobile-menu" class="nav__mobile-menu" role="dialog" aria-label="Mobile navigation menu">
+      <ul class="nav__mobile-links" role="list">
+        <li><a href="#about"        data-nav-link>Features</a></li>
+        <li><a href="#pricing"      data-nav-link>Pricing</a></li>
+        <li><a href="#work"         data-nav-link>Showcase</a></li>
+        <li><a href="#testimonials" data-nav-link>Reviews</a></li>
+        <li><a href="#contact"      data-nav-link>Contact</a></li>
+      </ul>
+      <div class="cluster">
+        <button type="button" class="btn btn--secondary btn--lg w-full" id="mobile-signin-btn" aria-haspopup="dialog" aria-controls="signin-modal">Sign In</button>
+        <a href="#pricing" class="btn btn--primary btn--lg w-full" data-nav-link>Start Free Trial</a>
+      </div>
+    </div><!-- /mobile-menu -->
+
+  </header><!-- /header -->
+
+  <!-- ==================================================================
+       MAIN CONTENT
+  =================================================================== -->
+  <main id="main-content" role="main">
+
+    <!-- ================================================================
+         SECTION 1: HERO
+    ================================================================= -->
+    <section id="hero" aria-labelledby="hero-headline">
+
+      <!-- Background decorations -->
+      <div class="bg-gradient-hero" aria-hidden="true">
+        <div class="bg-blob bg-blob--mocha"></div>
+        <div class="bg-blob bg-blob--blue"></div>
+        <div class="bg-blob bg-blob--center"></div>
+      </div>
+
+      <div class="container hero">
+        <div class="hero__inner">
+
+          <!-- New feature announcement badge -->
+          <div class="hero-badge hero-animate-badge" role="status" aria-live="polite">
+            <span class="hero-badge__dot" aria-hidden="true"></span>
+            AI-powered reviews — now with GPT-4o analysis
+          </div>
+
+          <!-- Hero headline: one H1 per page -->
+          <h1 id="hero-headline" class="hero__headline hero-animate-headline">
+            Ship Code Faster.<br />
+            <span class="text-gradient-animate">Review Smarter.</span>
+          </h1>
+
+          <!-- Hero subtext -->
+          <p class="hero__subtext hero-animate-sub">
+            CodeFlow brings AI-assisted code review, real-time team collaboration,
+            and automated quality gates directly into your pull request workflow.
+            Merge with confidence — every time.
+          </p>
+
+          <!-- Primary CTA group -->
+          <div class="hero__cta-group hero-animate-cta">
+            <a
+              href="#pricing"
+              class="btn btn--primary btn--xl"
+              id="hero-cta-primary"
+              aria-label="See CodeFlow pricing and start your free trial"
+            >
+              Start Free Trial
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a
+              href="#work"
+              class="btn btn--secondary btn--xl"
+              id="hero-cta-secondary"
+              aria-label="Watch a demo of CodeFlow"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M10 8l6 4-6 4V8z" fill="currentColor"/>
+              </svg>
+              Watch Demo
+            </a>
+          </div>
+
+          <!-- Social proof -->
+          <div class="hero__social-proof hero-animate-proof" aria-label="Trusted by thousands of developers">
+            <div class="hero__avatars" aria-hidden="true">
+              <img
+                class="hero__avatar hero-eager"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23A5856F'/%3E%3Ctext x='20' y='25' text-anchor='middle' fill='white' font-size='14' font-family='Montserrat,sans-serif'%3EAK%3C/text%3E%3C/svg%3E"
+                alt="Avatar of developer Aiden K"
+                width="36"
+                height="36"
+              />
+              <img
+                class="hero__avatar hero-eager"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%235BABB9'/%3E%3Ctext x='20' y='25' text-anchor='middle' fill='white' font-size='14' font-family='Montserrat,sans-serif'%3ESM%3C/text%3E%3C/svg%3E"
+                alt="Avatar of developer Sara M"
+                width="36"
+                height="36"
+              />
+              <img
+                class="hero__avatar hero-eager"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%237A5C48'/%3E%3Ctext x='20' y='25' text-anchor='middle' fill='white' font-size='14' font-family='Montserrat,sans-serif'%3ERP%3C/text%3E%3C/svg%3E"
+                alt="Avatar of developer Rahul P"
+                width="36"
+                height="36"
+              />
+              <img
+                class="hero__avatar hero-eager"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%232E7D8A'/%3E%3Ctext x='20' y='25' text-anchor='middle' fill='white' font-size='14' font-family='Montserrat,sans-serif'%3EJL%3C/text%3E%3C/svg%3E"
+                alt="Avatar of developer Jade L"
+                width="36"
+                height="36"
+              />
+            </div>
+            <span>
+              Trusted by <strong>12,000+</strong> engineers at 800+ companies
+            </span>
+          </div>
+
+          <!-- Hero product dashboard mockup -->
+          <div class="hero-dashboard hero-animate-media" role="img" aria-label="Screenshot of the CodeFlow code review dashboard showing AI suggestions and team activity">
+
+            <div class="hero-dashboard__bar" aria-hidden="true">
+              <span class="hero-dashboard__dot dot--red"></span>
+              <span class="hero-dashboard__dot dot--yellow"></span>
+              <span class="hero-dashboard__dot dot--green"></span>
+              <span class="hero-dashboard__title">codeflow — PR #247: feat/auth-refresh-token</span>
+            </div>
+
+            <div class="hero-dashboard__content" aria-hidden="true">
+              <!-- Sidebar -->
+              <div class="dashboard-sidebar">
+                <div class="dashboard-sidebar__item active">
+                  <span class="dashboard-sidebar__icon">📋</span>
+                  <span>PR Queue</span>
+                </div>
+                <div class="dashboard-sidebar__item">
+                  <span class="dashboard-sidebar__icon">🤖</span>
+                  <span>AI Review</span>
+                </div>
+                <div class="dashboard-sidebar__item">
+                  <span class="dashboard-sidebar__icon">📊</span>
+                  <span>Analytics</span>
+                </div>
+                <div class="dashboard-sidebar__item">
+                  <span class="dashboard-sidebar__icon">🔔</span>
+                  <span>Alerts</span>
+                </div>
+                <div class="dashboard-sidebar__item">
+                  <span class="dashboard-sidebar__icon">⚙️</span>
+                  <span>Settings</span>
+                </div>
+              </div>
+              <!-- Main code panel -->
+              <div class="dashboard-main">
+                <div class="dashboard-code-block">
+                  <div class="code-line">
+                    <span class="code-line__num">1</span>
+                    <span class="code-line__text"><span class="syntax-keyword">async function</span> <span class="syntax-function">refreshToken</span>(<span class="syntax-param">userId</span>) {</span>
+                  </div>
+                  <div class="code-line">
+                    <span class="code-line__num">2</span>
+                    <span class="code-line__text">&nbsp;&nbsp;<span class="syntax-keyword">const</span> token = <span class="syntax-keyword">await</span> db.tokens.<span class="syntax-function">findOne</span>({ userId });</span>
+                  </div>
+                  <div class="code-line">
+                    <span class="code-line__num">3</span>
+                    <span class="code-line__text">&nbsp;&nbsp;<span class="syntax-keyword">if</span> (!token.<span class="syntax-function">isValid</span>()) <span class="syntax-keyword">throw new</span> <span class="syntax-function">TokenExpiredError</span>();</span>
+                  </div>
+                  <div class="code-line">
+                    <span class="code-line__num">4</span>
+                    <span class="code-line__text">&nbsp;&nbsp;<span class="syntax-keyword">return</span> jwt.<span class="syntax-function">sign</span>({ userId }, <span class="syntax-string">process.env.JWT_SECRET</span>);</span>
+                  </div>
+                  <div class="code-line">
+                    <span class="code-line__num">5</span>
+                    <span class="code-line__text">} <span class="syntax-comment">// ✓ AI: Looks good — consider adding expiry option</span></span>
+                  </div>
+                </div>
+                <div class="dashboard-insights">
+                  <div class="insight-chip">
+                    <span class="insight-chip__val">98%</span>
+                    <span class="insight-chip__label">Coverage</span>
+                  </div>
+                  <div class="insight-chip">
+                    <span class="insight-chip__val">A+</span>
+                    <span class="insight-chip__label">Quality</span>
+                  </div>
+                  <div class="insight-chip">
+                    <span class="insight-chip__val">2min</span>
+                    <span class="insight-chip__label">Review time</span>
+                  </div>
+                </div>
+              </div><!-- /dashboard-main -->
+            </div><!-- /dashboard-content -->
+
+          </div><!-- /hero-dashboard -->
+
+        </div><!-- /hero__inner -->
+      </div><!-- /container -->
+    </section><!-- /hero -->
+
+    <!-- ================================================================
+         TRUST BAR — Logos of companies
+    ================================================================= -->
+    <section id="trust" aria-label="Trusted by industry-leading companies">
+      <div class="container">
+        <div class="trust-bar">
+          <p class="trust-bar__inner">Trusted by engineering teams at</p>
+          <div class="trust-bar__logos" role="list" aria-label="Company logos">
+            <span class="trust-bar__logo-item" role="listitem">Vercel</span>
+            <span class="trust-bar__logo-item" role="listitem">Linear</span>
+            <span class="trust-bar__logo-item" role="listitem">Stripe</span>
+            <span class="trust-bar__logo-item" role="listitem">Notion</span>
+            <span class="trust-bar__logo-item" role="listitem">Figma</span>
+            <span class="trust-bar__logo-item" role="listitem">Shopify</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 2: ABOUT / FEATURES
+    ================================================================= -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+
+        <!-- Section header -->
+        <header class="section-header reveal">
+          <span class="eyebrow" aria-hidden="true">Platform Features</span>
+          <h2 id="about-heading">Everything your team needs to ship quality code</h2>
+          <p>
+            CodeFlow integrates seamlessly into your existing workflow, supercharging
+            pull requests with intelligence your team can trust.
+          </p>
+        </header>
+
+        <!-- 3-column feature card grid -->
+        <div class="card-grid" role="list" aria-label="Key platform features">
+
+          <article class="feature-card reveal" role="listitem" aria-labelledby="feature-ai-heading">
+            <div class="feature-card__icon" aria-hidden="true">🤖</div>
+            <h3 id="feature-ai-heading" class="feature-card__title">AI Code Analysis</h3>
+            <p class="feature-card__body">
+              GPT-4o reads your diff and flags bugs, security vulnerabilities, and
+              performance bottlenecks before reviewers even open the PR.
+            </p>
+            <p class="feature-card__outcome">Teams catch 3× more bugs pre-merge without adding review time.</p>
+          </article>
+
+          <article class="feature-card reveal" role="listitem" aria-labelledby="feature-collab-heading">
+            <div class="feature-card__icon" aria-hidden="true">💬</div>
+            <h3 id="feature-collab-heading" class="feature-card__title">Real-Time Collaboration</h3>
+            <p class="feature-card__body">
+              Leave inline comments, resolve threads, and request changes with live
+              presence indicators so your team stays perfectly in sync.
+            </p>
+            <p class="feature-card__outcome">Avg. PR thread resolution drops from 2 days to under 4 hours.</p>
+          </article>
+
+          <article class="feature-card reveal" role="listitem" aria-labelledby="feature-gates-heading">
+            <div class="feature-card__icon" aria-hidden="true">🛡️</div>
+            <h3 id="feature-gates-heading" class="feature-card__title">Automated Quality Gates</h3>
+            <p class="feature-card__body">
+              Define merge rules based on test coverage, code complexity, and AI
+              confidence scores. Bad code simply cannot land in main.
+            </p>
+            <p class="feature-card__outcome">Zero "bad merge Mondays" — 94% of regressions blocked automatically.</p>
+          </article>
+
+          <article class="feature-card reveal" role="listitem" aria-labelledby="feature-integrations-heading">
+            <div class="feature-card__icon" aria-hidden="true">🔗</div>
+            <h3 id="feature-integrations-heading" class="feature-card__title">Deep Integrations</h3>
+            <p class="feature-card__body">
+              Works natively with GitHub, GitLab, Bitbucket, Jira, Slack, and
+              Linear — no config hell, just plug in and go.
+            </p>
+            <p class="feature-card__outcome">Set up in 3 minutes. No config files, no webhooks to debug.</p>
+          </article>
+
+          <article class="feature-card reveal" role="listitem" aria-labelledby="feature-analytics-heading">
+            <div class="feature-card__icon" aria-hidden="true">📊</div>
+            <h3 id="feature-analytics-heading" class="feature-card__title">Team Analytics</h3>
+            <p class="feature-card__body">
+              Track review velocity, PR cycle times, and individual contribution
+              health with beautiful dashboards your lead will love.
+            </p>
+            <p class="feature-card__outcome">Engineering leads spend 60% less time in status update meetings.</p>
+          </article>
+
+          <article class="feature-card reveal" role="listitem" aria-labelledby="feature-security-heading">
+            <div class="feature-card__icon" aria-hidden="true">🔒</div>
+            <h3 id="feature-security-heading" class="feature-card__title">Enterprise Security</h3>
+            <p class="feature-card__body">
+              SOC 2 Type II certified, GDPR compliant, with SSO, audit logs,
+              and self-hosted deployment options for regulated industries.
+            </p>
+            <p class="feature-card__outcome">Audit-ready reports generated in seconds, not weeks.</p>
+          </article>
+
+        </div><!-- /card-grid -->
+
+      </div><!-- /container -->
+    </section><!-- /about -->
+
+    <!-- ================================================================
+         STATS SECTION
+    ================================================================= -->
+    <section id="stats" aria-labelledby="stats-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="eyebrow eyebrow--blue" aria-hidden="true">By the Numbers</span>
+          <h2 id="stats-heading">Results teams actually care about</h2>
+          <p>Aggregated data across 800+ teams using CodeFlow in production.</p>
+        </header>
+
+        <div class="stats-grid" role="list" aria-label="Key statistics about CodeFlow performance">
+
+          <div class="stat-item reveal" role="listitem">
+            <span
+              class="stat-item__value"
+              data-target="63%"
+              aria-label="63 percent faster reviews"
+            >63%</span>
+            <span class="stat-item__label">Faster Reviews</span>
+          </div>
+
+          <div class="stat-item reveal" role="listitem">
+            <span
+              class="stat-item__value"
+              data-target="99%"
+              aria-label="99 percent uptime"
+            >99%</span>
+            <span class="stat-item__label">Uptime SLA</span>
+          </div>
+
+          <div class="stat-item reveal" role="listitem">
+            <span
+              class="stat-item__value"
+              data-target="12k+"
+              aria-label="12,000 plus active users"
+            >12k+</span>
+            <span class="stat-item__label">Active Engineers</span>
+          </div>
+
+          <div class="stat-item reveal" role="listitem">
+            <span
+              class="stat-item__value"
+              data-target="4.9"
+              aria-label="4.9 out of 5 star rating"
+            >4.9</span>
+            <span class="stat-item__label">Average Rating</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         SECTION 3: WORK / SHOWCASE
+    ================================================================= -->
+    <section id="work" aria-labelledby="work-heading">
+      <div class="container">
+
+        <header class="section-header reveal">
+          <span class="eyebrow" aria-hidden="true">Customer Showcase</span>
+          <h2 id="work-heading">How leading teams use CodeFlow</h2>
+          <p>
+            From seed-stage startups to Fortune 500 engineering orgs, CodeFlow
+            adapts to every team's workflow.
+          </p>
+        </header>
+
+        <!-- Work cards grid (min 4 required) -->
+        <div class="work-grid" role="list" aria-label="Customer case studies and project showcases">
+
+          <!-- Card 1 — Featured (spans 2 columns on desktop) -->
+          <article class="work-card card--featured reveal" role="listitem" aria-labelledby="work-card-1-title">
+            <div class="work-card__image-wrapper">
+              <img
+                class="work-card__image"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%232A2118'/%3E%3Crect x='40' y='40' width='720' height='370' rx='12' fill='%233A2F24'/%3E%3Crect x='60' y='60' width='200' height='12' rx='6' fill='%23A5856F' opacity='.6'/%3E%3Crect x='60' y='90' width='300' height='8' rx='4' fill='%23A0D4E0' opacity='.3'/%3E%3Crect x='60' y='110' width='250' height='8' rx='4' fill='%23A0D4E0' opacity='.2'/%3E%3Crect x='60' y='140' width='600' height='1' fill='%234A3F36'/%3E%3Crect x='60' y='160' width='40' height='8' rx='4' fill='%237A5C48' opacity='.5'/%3E%3Crect x='110' y='160' width='200' height='8' rx='4' fill='rgba(242,240,234,.4)'/%3E%3Crect x='60' y='185' width='40' height='8' rx='4' fill='%237A5C48' opacity='.5'/%3E%3Crect x='110' y='185' width='280' height='8' rx='4' fill='rgba(242,240,234,.4)'/%3E%3Crect x='60' y='210' width='40' height='8' rx='4' fill='%235BABB9' opacity='.6'/%3E%3Crect x='110' y='210' width='320' height='8' rx='4' fill='rgba(160,212,224,.5)'/%3E%3Crect x='500' y='155' width='260' height='100' rx='8' fill='%23A5856F' opacity='.12'/%3E%3Ctext x='512' y='178' fill='%23C9AA96' font-size='11' font-family='monospace'%3E🤖 AI Suggestion%3C/text%3E%3Crect x='512' y='188' width='200' height='6' rx='3' fill='rgba(160,212,224,.3)'/%3E%3Crect x='512' y='202' width='160' height='6' rx='3' fill='rgba(160,212,224,.2)'/%3E%3Crect x='512' y='216' width='180' height='6' rx='3' fill='rgba(160,212,224,.2)'/%3E%3Crect x='60' y='300' width='680' height='60' rx='8' fill='rgba(160,212,224,.06)'/%3E%3Ctext x='80' y='326' fill='%235BABB9' font-size='12' font-family='Montserrat,sans-serif' font-weight='600'%3E✓ All checks passed — ready to merge%3C/text%3E%3C/svg%3E"
+                alt="CodeFlow dashboard showing AI code review with inline suggestions and automated quality checks for a feature branch"
+                width="800"
+                height="450"
+              />
+              <div class="work-card__overlay">
+                <a href="#contact" class="work-card__view-link">
+                  View Case Study →
+                </a>
+              </div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__meta">
+                <span class="badge badge--mocha">Case Study</span>
+                <span class="badge badge--blue">Enterprise</span>
+              </div>
+              <h3 id="work-card-1-title" class="work-card__title">
+                Vercel cuts PR review time by 68% with AI-assisted feedback
+              </h3>
+              <p class="work-card__description">
+                Vercel's platform engineering team processes 400+ PRs per week.
+                After integrating CodeFlow, their average review cycle dropped from
+                4.2 hours to 81 minutes — without sacrificing code quality.
+              </p>
+              <div class="work-card__footer">
+                <a href="#contact" class="work-card__link" aria-label="Read the Vercel case study">
+                  Read case study →
+                </a>
+                <span class="caption">Engineering · 140 engineers</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="work-card reveal" role="listitem" aria-labelledby="work-card-2-title">
+            <div class="work-card__image-wrapper">
+              <img
+                class="work-card__image"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 340'%3E%3Crect width='600' height='340' fill='%23EAF5F8'/%3E%3Crect x='30' y='30' width='540' height='280' rx='10' fill='white'/%3E%3Ccircle cx='90' cy='90' r='30' fill='%23A0D4E0' opacity='.4'/%3E%3Ccircle cx='90' cy='90' r='20' fill='%235BABB9' opacity='.6'/%3E%3Crect x='135' y='72' width='180' height='10' rx='5' fill='%232A2118' opacity='.5'/%3E%3Crect x='135' y='92' width='120' height='8' rx='4' fill='%23A5856F' opacity='.4'/%3E%3Crect x='30' y='140' width='540' height='1' fill='%23E9E6DE'/%3E%3Crect x='30' y='165' width='160' height='8' rx='4' fill='%232A2118' opacity='.3'/%3E%3Crect x='30' y='185' width='500' height='6' rx='3' fill='%232A2118' opacity='.15'/%3E%3Crect x='30' y='200' width='420' height='6' rx='3' fill='%232A2118' opacity='.15'/%3E%3Crect x='30' y='245' width='80' height='28' rx='14' fill='%23A5856F'/%3E%3Ctext x='45' y='264' fill='white' font-size='10' font-family='Montserrat,sans-serif' font-weight='600'%3EApproved%3C/text%3E%3C/svg%3E"
+                alt="Code review approval workflow showing team collaboration and automated test results in CodeFlow"
+                width="600"
+                height="340"
+              />
+              <div class="work-card__overlay">
+                <a href="#contact" class="work-card__view-link">View Case Study →</a>
+              </div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__meta">
+                <span class="badge badge--mocha">Case Study</span>
+                <span class="badge badge--success">Startup</span>
+              </div>
+              <h3 id="work-card-2-title" class="work-card__title">
+                Linear's small team ships like a team 5× their size
+              </h3>
+              <p class="work-card__description">
+                With just 12 engineers, Linear uses CodeFlow's quality gates and
+                AI review to maintain engineering excellence at startup velocity.
+              </p>
+              <div class="work-card__footer">
+                <a href="#contact" class="work-card__link" aria-label="Read the Linear case study">Read case study →</a>
+                <span class="caption">Product · 12 engineers</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="work-card reveal" role="listitem" aria-labelledby="work-card-3-title">
+            <div class="work-card__image-wrapper">
+              <img
+                class="work-card__image"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 340'%3E%3Crect width='600' height='340' fill='%23EDE3DC'/%3E%3Crect x='30' y='30' width='540' height='280' rx='10' fill='%232A2118'/%3E%3Crect x='50' y='55' width='100' height='8' rx='4' fill='%23A5856F' opacity='.6'/%3E%3Crect x='50' y='75' width='200' height='6' rx='3' fill='rgba(242,240,234,.3)'/%3E%3Crect x='50' y='90' width='160' height='6' rx='3' fill='rgba(242,240,234,.2)'/%3E%3Crect x='50' y='120' width='500' height='100' rx='8' fill='rgba(160,212,224,.08)'/%3E%3Ctext x='65' y='145' fill='%235BABB9' font-size='11' font-family='monospace'%3Efunction validatePayment(data) {%3C/text%3E%3Ctext x='65' y='163' fill='rgba(242,240,234,.5)' font-size='11' font-family='monospace'%3E  if (!data.amount) throw Error;%3C/text%3E%3Ctext x='65' y='181' fill='rgba(242,240,234,.5)' font-size='11' font-family='monospace'%3E  return stripe.charge(data);%3C/text%3E%3Crect x='50' y='240' width='150' height='30' rx='6' fill='%23A5856F' opacity='.2'/%3E%3Ctext x='65' y='260' fill='%23C9AA96' font-size='10' font-family='Montserrat,sans-serif'%3E⚠️ AI: Add null check%3C/text%3E%3C/svg%3E"
+                alt="Security-focused code analysis in CodeFlow showing AI flagging a potential vulnerability in payment processing code"
+                width="600"
+                height="340"
+              />
+              <div class="work-card__overlay">
+                <a href="#contact" class="work-card__view-link">View Case Study →</a>
+              </div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__meta">
+                <span class="badge badge--blue">Security</span>
+                <span class="badge badge--mocha">FinTech</span>
+              </div>
+              <h3 id="work-card-3-title" class="work-card__title">
+                Stripe prevents 94% of security regressions pre-merge
+              </h3>
+              <p class="work-card__description">
+                CodeFlow's AI caught subtle injection vulnerabilities in Stripe's
+                payment processing layer that human reviewers missed 3 times.
+              </p>
+              <div class="work-card__footer">
+                <a href="#contact" class="work-card__link" aria-label="Read the Stripe security case study">Read case study →</a>
+                <span class="caption">Security · 320 engineers</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="work-card reveal" role="listitem" aria-labelledby="work-card-4-title">
+            <div class="work-card__image-wrapper">
+              <img
+                class="work-card__image"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 340'%3E%3Crect width='600' height='340' fill='%23F2F0EA'/%3E%3Crect x='30' y='30' width='250' height='280' rx='10' fill='white'/%3E%3Crect x='30' y='30' width='250' height='50' rx='10' fill='%23A5856F' opacity='.15'/%3E%3Ctext x='50' y='60' fill='%237A5C48' font-size='12' font-family='Montserrat,sans-serif' font-weight='700'%3ETeam Analytics%3C/text%3E%3Crect x='50' y='100' width='60' height='8' rx='4' fill='%23A5856F' opacity='.4'/%3E%3Crect x='50' y='118' width='180' height='6' rx='3' fill='%232A2118' opacity='.2'/%3E%3Crect x='50' y='134' width='140' height='6' rx='3' fill='%232A2118' opacity='.15'/%3E%3Crect x='50' y='160' width='200' height='80' rx='6' fill='%23EAF5F8'/%3E%3Crect x='65' y='185' width='20' height='40' rx='3' fill='%23A0D4E0' opacity='.7'/%3E%3Crect x='95' y='175' width='20' height='50' rx='3' fill='%23A5856F' opacity='.7'/%3E%3Crect x='125' y='190' width='20' height='35' rx='3' fill='%235BABB9' opacity='.7'/%3E%3Crect x='155' y='180' width='20' height='45' rx='3' fill='%237A5C48' opacity='.5'/%3E%3Crect x='185' y='170' width='20' height='55' rx='3' fill='%23A0D4E0' opacity='.8'/%3E%3Crect x='300' y='30' width='270' height='130' rx='10' fill='white'/%3E%3Crect x='320' y='50' width='100' height='8' rx='4' fill='%232A2118' opacity='.4'/%3E%3Ccircle cx='430' cy='105' r='50' fill='none' stroke='%23A5856F' stroke-width='18' stroke-dasharray='157 314' opacity='.7'/%3E%3Ccircle cx='430' cy='105' r='50' fill='none' stroke='%23A0D4E0' stroke-width='18' stroke-dasharray='100 314' stroke-dashoffset='-157' opacity='.6'/%3E%3Crect x='300' y='180' width='270' height='130' rx='10' fill='white'/%3E%3Crect x='320' y='200' width='100' height='8' rx='4' fill='%232A2118' opacity='.4'/%3E%3Crect x='320' y='225' width='230' height='6' rx='3' fill='%23A5856F' opacity='.5'/%3E%3Crect x='320' y='240' width='190' height='6' rx='3' fill='%235BABB9' opacity='.4'/%3E%3Crect x='320' y='255' width='210' height='6' rx='3' fill='%23A5856F' opacity='.3'/%3E%3C/svg%3E"
+                alt="CodeFlow analytics dashboard showing team PR velocity charts, coverage metrics, and performance trends"
+                width="600"
+                height="340"
+              />
+              <div class="work-card__overlay">
+                <a href="#contact" class="work-card__view-link">View Case Study →</a>
+              </div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__meta">
+                <span class="badge badge--mocha">Analytics</span>
+                <span class="badge badge--muted">SaaS</span>
+              </div>
+              <h3 id="work-card-4-title" class="work-card__title">
+                Notion tracks engineering health with real-time dashboards
+              </h3>
+              <p class="work-card__description">
+                Notion's engineering leadership uses CodeFlow analytics to spot
+                bottlenecks, celebrate top reviewers, and plan sprints accurately.
+              </p>
+              <div class="work-card__footer">
+                <a href="#contact" class="work-card__link" aria-label="Read the Notion analytics case study">Read case study →</a>
+                <span class="caption">Analytics · 85 engineers</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="work-card reveal" role="listitem" aria-labelledby="work-card-5-title">
+            <div class="work-card__image-wrapper">
+              <img
+                class="work-card__image"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 340'%3E%3Crect width='600' height='340' fill='%232A2118'/%3E%3Crect x='0' y='0' width='600' height='340' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232E7D8A' stop-opacity='.2'/%3E%3Cstop offset='1' stop-color='%23A5856F' stop-opacity='.15'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='30' y='50' width='540' height='240' rx='12' fill='rgba(255,255,255,.04)'/%3E%3Ctext x='50' y='95' fill='%23A0D4E0' font-size='13' font-family='Montserrat,sans-serif' font-weight='700'%3E⚡ PR Automation Rules%3C/text%3E%3Crect x='50' y='110' width='500' height='30' rx='6' fill='rgba(165,133,111,.15)'/%3E%3Ctext x='65' y='130' fill='%23C9AA96' font-size='11' font-family='monospace'%3EIF coverage %3C 80%25 → BLOCK merge%3C/text%3E%3Crect x='50' y='150' width='500' height='30' rx='6' fill='rgba(91,171,185,.15)'/%3E%3Ctext x='65' y='170' fill='%23A0D4E0' font-size='11' font-family='monospace'%3EIF AI risk score %3E 0.7 → REQUIRE 2 reviewers%3C/text%3E%3Crect x='50' y='190' width='500' height='30' rx='6' fill='rgba(61,122,92,.15)'/%3E%3Ctext x='65' y='210' fill='%2372C39B' font-size='11' font-family='monospace'%3EIF all checks pass → AUTO merge to staging%3C/text%3E%3C/svg%3E"
+                alt="CodeFlow automation rules configuration showing no-code policy builder for enforcing merge requirements"
+                width="600"
+                height="340"
+              />
+              <div class="work-card__overlay">
+                <a href="#contact" class="work-card__view-link">View Case Study →</a>
+              </div>
+            </div>
+            <div class="work-card__body">
+              <div class="work-card__meta">
+                <span class="badge badge--blue">Automation</span>
+                <span class="badge badge--mocha">E-commerce</span>
+              </div>
+              <h3 id="work-card-5-title" class="work-card__title">
+                Shopify automates 70% of routine PR decisions
+              </h3>
+              <p class="work-card__description">
+                Using CodeFlow's no-code rule builder, Shopify's platform team
+                freed reviewers from routine checks to focus on deep architecture decisions.
+              </p>
+              <div class="work-card__footer">
+                <a href="#contact" class="work-card__link" aria-label="Read the Shopify automation case study">Read case study →</a>
+                <span class="caption">Platform · 600+ engineers</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 — View All CTA -->
+          <article class="work-card work-card--cta reveal" role="listitem" aria-label="View all customer case studies">
+            <div class="work-card__body">
+              <div class="work-card__cta-icon" aria-hidden="true">📚</div>
+              <h3 id="work-card-6-title" class="work-card__title">See all 40+ case studies</h3>
+              <p class="work-card__description">
+                Browse stories from teams across fintech, healthcare, e-commerce, and more.
+              </p>
+              <a href="#contact" class="btn btn--primary" aria-label="Browse all CodeFlow customer case studies">
+                Browse All Stories →
+              </a>
+            </div>
+          </article>
+
+        </div><!-- /work-grid -->
+      </div><!-- /container -->
+    </section><!-- /work -->
+
+    <!-- ================================================================
+         TESTIMONIALS
+    ================================================================= -->
+    <section id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <header class="section-header reveal">
+          <span class="eyebrow" aria-hidden="true">What Teams Say</span>
+          <h2 id="testimonials-heading">Loved by engineers. Trusted by CTOs.</h2>
+          <p>
+            Don't take our word for it — here's what teams building at scale
+            say about CodeFlow.
+          </p>
+        </header>
+
+        <div class="grid-3" role="list" aria-label="Customer testimonials">
+
+          <article class="testimonial-card reveal" role="listitem" aria-labelledby="testimonial-1-author">
+            <blockquote class="testimonial-card__quote">
+              CodeFlow has genuinely changed how we approach code quality.
+              The AI suggestions are scarily accurate — it caught a race condition
+              that would have taken us hours to debug in production.
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <img
+                class="testimonial-card__avatar"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='22' fill='%23A5856F'/%3E%3Ctext x='22' y='28' text-anchor='middle' fill='white' font-size='16' font-family='Montserrat,sans-serif' font-weight='700'%3EMR%3C/text%3E%3C/svg%3E"
+                alt="Mia Russo"
+                width="44"
+                height="44"
+              />
+              <div>
+                <p id="testimonial-1-author" class="testimonial-card__name">Mia Russo</p>
+                <p class="testimonial-card__role">Staff Engineer, Vercel</p>
+              </div>
+            </footer>
+          </article>
+
+          <article class="testimonial-card reveal" role="listitem" aria-labelledby="testimonial-2-author">
+            <blockquote class="testimonial-card__quote">
+              We went from spending 30% of our sprint on review cycles to under
+              10%. CodeFlow's automation rules let us enforce standards without
+              slowing anyone down. Genuinely a superpower for a lean team.
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <img
+                class="testimonial-card__avatar"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='22' fill='%232E7D8A'/%3E%3Ctext x='22' y='28' text-anchor='middle' fill='white' font-size='16' font-family='Montserrat,sans-serif' font-weight='700'%3EKP%3C/text%3E%3C/svg%3E"
+                alt="Kaveh Pourali"
+                width="44"
+                height="44"
+              />
+              <div>
+                <p id="testimonial-2-author" class="testimonial-card__name">Kaveh Pourali</p>
+                <p class="testimonial-card__role">CTO, Linear</p>
+              </div>
+            </footer>
+          </article>
+
+          <article class="testimonial-card reveal" role="listitem" aria-labelledby="testimonial-3-author">
+            <blockquote class="testimonial-card__quote">
+              The analytics dashboard alone is worth the price. I can finally
+              answer "where are PRs getting stuck?" with data, not gut feeling.
+              Our board loves the engineering health metrics.
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <img
+                class="testimonial-card__avatar"
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='22' fill='%237A5C48'/%3E%3Ctext x='22' y='28' text-anchor='middle' fill='white' font-size='16' font-family='Montserrat,sans-serif' font-weight='700'%3ENT%3C/text%3E%3C/svg%3E"
+                alt="Naomi Torres"
+                width="44"
+                height="44"
+              />
+              <div>
+                <p id="testimonial-3-author" class="testimonial-card__name">Naomi Torres</p>
+                <p class="testimonial-card__role">VP Engineering, Notion</p>
+              </div>
+            </footer>
+          </article>
+
+        </div><!-- /grid-3 -->
+      </div><!-- /container -->
+    </section><!-- /testimonials -->
+
+    <!-- ================================================================
+         CTA BANNER
+    ================================================================= -->
+    <section id="cta-banner" aria-labelledby="cta-banner-heading">
+      <div class="container cta-banner__container">
+        <header class="section-header reveal" style="margin-bottom: var(--space-8);">
+          <h2 id="cta-banner-heading" class="cta-banner__heading">
+            Ready to ship code with confidence?
+          </h2>
+          <p class="cta-banner__text">
+            Join 12,000+ engineers who start every review knowing their code is
+            better for it. No credit card required for the 14-day trial.
+          </p>
+        </header>
+        <div class="cluster cluster--center">
+          <a href="#pricing" class="btn btn--white btn--xl" id="banner-cta-primary">
+            Start Free Trial — 14 Days
+          </a>
+          <a href="#work" class="btn btn--xl cta-banner__btn-outline" id="banner-cta-secondary">
+            See All Case Studies
+          </a>
+        </div>
+        <p class="cta-banner__note">
+          Setup takes 3 minutes · Works with GitHub, GitLab &amp; Bitbucket · Cancel anytime
+        </p>
+      </div>
+    </section><!-- /cta-banner -->
+
+    <!-- ================================================================
+         SECTION 4: PRICING
+    ================================================================= -->
+    <section id="pricing" aria-labelledby="pricing-heading">
+      <div class="container">
+
+        <header class="section-header reveal">
+          <span class="eyebrow" aria-hidden="true">Pricing</span>
+          <h2 id="pricing-heading">Simple pricing that scales with your team</h2>
+          <p>Start free. Upgrade when your team is ready. No surprise fees.</p>
+          <!-- Monthly / Annual toggle -->
+          <div class="pricing-toggle" role="group" aria-label="Billing period">
+            <button class="pricing-toggle__btn is-active" id="toggle-monthly" type="button">Monthly</button>
+            <button class="pricing-toggle__btn" id="toggle-annual" type="button">
+              Annual <span class="badge badge--success">Save 20%</span>
+            </button>
+          </div>
+        </header>
+
+        <div class="pricing-grid" role="list">
+
+          <!-- FREE tier -->
+          <article class="pricing-card reveal" role="listitem" aria-labelledby="plan-free-title">
+            <div class="pricing-card__header">
+              <p id="plan-free-title" class="pricing-card__tier">Free</p>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount" data-monthly="$0" data-annual="$0">$0</span>
+                <span class="pricing-card__period">/month</span>
+              </div>
+              <p class="pricing-card__tagline">Perfect for solo devs and small projects</p>
+            </div>
+            <ul class="pricing-card__features" role="list" aria-label="Free plan features">
+              <li>✓ Up to 3 repositories</li>
+              <li>✓ 50 AI reviews per month</li>
+              <li>✓ Basic quality gates</li>
+              <li>✓ GitHub integration</li>
+              <li>✓ Community support</li>
+              <li class="pricing-card__feature--unavailable">✗ Team analytics</li>
+              <li class="pricing-card__feature--unavailable">✗ Priority support</li>
+            </ul>
+            <a href="#contact" class="btn btn--secondary btn--lg w-full pricing-cta" data-plan="Free">Get started free</a>
+          </article>
+
+          <!-- PRO tier — highlighted -->
+          <article class="pricing-card pricing-card--featured reveal" role="listitem" aria-labelledby="plan-pro-title">
+            <div class="pricing-card__badge" aria-label="Most popular plan">Most Popular</div>
+            <div class="pricing-card__header">
+              <p id="plan-pro-title" class="pricing-card__tier">Pro</p>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount" data-monthly="$29" data-annual="$23">$29</span>
+                <span class="pricing-card__period">/month per seat</span>
+              </div>
+              <p class="pricing-card__tagline">For growing teams that ship fast</p>
+            </div>
+            <ul class="pricing-card__features" role="list" aria-label="Pro plan features">
+              <li>✓ Unlimited repositories</li>
+              <li>✓ Unlimited AI reviews</li>
+              <li>✓ Advanced quality gates</li>
+              <li>✓ GitHub, GitLab, Bitbucket</li>
+              <li>✓ Team analytics dashboard</li>
+              <li>✓ Slack &amp; Jira integrations</li>
+              <li>✓ Email &amp; chat support</li>
+            </ul>
+            <a href="#contact" class="btn btn--primary btn--lg w-full pricing-cta" data-plan="Pro">Start 14-day free trial</a>
+            <p class="pricing-card__note">No credit card required</p>
+          </article>
+
+          <!-- ENTERPRISE tier -->
+          <article class="pricing-card reveal" role="listitem" aria-labelledby="plan-enterprise-title">
+            <div class="pricing-card__header">
+              <p id="plan-enterprise-title" class="pricing-card__tier">Enterprise</p>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount pricing-card__amount--custom">Custom</span>
+              </div>
+              <p class="pricing-card__tagline">For large orgs with custom security needs</p>
+            </div>
+            <ul class="pricing-card__features" role="list" aria-label="Enterprise plan features">
+              <li>✓ Everything in Pro</li>
+              <li>✓ Self-hosted deployment</li>
+              <li>✓ SSO / SAML</li>
+              <li>✓ SOC 2 Type II &amp; GDPR</li>
+              <li>✓ Audit logs</li>
+              <li>✓ Custom SLA</li>
+              <li>✓ Dedicated success manager</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost btn--lg w-full pricing-cta" data-plan="Enterprise">Talk to sales</a>
+          </article>
+
+        </div><!-- /pricing-grid -->
+
+        <p class="pricing-footer-note reveal">
+          All plans include a 14-day free trial. Cancel anytime.
+          <a href="#contact">Compare all features →</a>
+        </p>
+
+      </div><!-- /container -->
+    </section><!-- /pricing -->
+
+    <!-- ================================================================
+         SECTION 5: CONTACT
+    ================================================================= -->
+    <section id="contact" aria-labelledby="contact-heading">
+
+      <div class="container">
+
+        <header class="section-header reveal">
+          <span class="eyebrow" aria-hidden="true">Get in Touch</span>
+          <h2 id="contact-heading">Start your free trial or reach out</h2>
+          <p>
+            Questions about pricing, enterprise plans, or a custom integration?
+            We'd love to hear from you.
+          </p>
+        </header>
+
+        <div class="contact-layout">
+
+          <!-- Left: contact info -->
+          <aside class="reveal reveal--left" aria-label="Contact information">
+            <div class="contact-info">
+
+              <div class="contact-info__item">
+                <div class="contact-info__icon-wrap" aria-hidden="true">📧</div>
+                <div>
+                  <p class="contact-info__label">Email us</p>
+                  <p class="contact-info__value">
+                    <a href="mailto:hello@codeflow.dev" aria-label="Send email to hello@codeflow.dev">
+                      hello@codeflow.dev
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-info__item">
+                <div class="contact-info__icon-wrap" aria-hidden="true">🗓️</div>
+                <div>
+                  <p class="contact-info__label">Book a demo</p>
+                  <p class="contact-info__value">
+                    <a href="#contact" aria-label="Schedule a live demo of CodeFlow">
+                      Schedule a 30-min walkthrough
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-info__item">
+                <div class="contact-info__icon-wrap" aria-hidden="true">💬</div>
+                <div>
+                  <p class="contact-info__label">Live chat</p>
+                  <p class="contact-info__value">
+                    Available Mon–Fri, 9am–6pm UTC
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-info__item">
+                <div class="contact-info__icon-wrap" aria-hidden="true">📖</div>
+                <div>
+                  <p class="contact-info__label">Documentation</p>
+                  <p class="contact-info__value">
+                    <a href="#contact" aria-label="Visit the CodeFlow documentation">
+                      docs.codeflow.dev
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+            </div><!-- /contact-info -->
+
+            <!-- Social proof mini block -->
+            <div class="contact-proof-block">
+              <div class="contact-proof-block__rating">
+                <span class="contact-proof-block__stars" aria-hidden="true">⭐⭐⭐⭐⭐</span>
+                <span class="contact-proof-block__score">4.9 / 5</span>
+              </div>
+              <p class="contact-proof-block__text">
+                Based on 2,400+ verified reviews on G2, Product Hunt, and Capterra.
+              </p>
+            </div>
+
+          </aside><!-- /contact info aside -->
+
+          <!-- Right: contact form -->
+          <div class="form-card reveal reveal--right">
+
+            <!-- Success state (hidden until form submitted) -->
+            <div
+              id="form-success"
+              class="form-success-msg"
+              role="alert"
+              aria-live="assertive"
+            >
+              <div class="form-success-icon" aria-hidden="true">✓</div>
+              <h3 tabindex="-1">Message sent successfully!</h3>
+              <p>
+                Thanks for reaching out. Our team will get back to you within
+                one business day. In the meantime, check out our docs.
+              </p>
+              <button
+                id="form-reset-btn"
+                type="button"
+                class="btn btn--secondary"
+                aria-label="Send another message"
+              >
+                Send another message
+              </button>
+            </div>
+
+            <!-- The actual form -->
+            <form
+              id="contact-form"
+              novalidate
+              aria-label="Contact CodeFlow"
+            >
+              <div class="stack stack--md">
+
+                <!-- Name -->
+                <div class="form-group">
+                  <label for="field-name" class="form-label">
+                    Full name <span class="required-mark" aria-label="required">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="field-name"
+                    name="name"
+                    class="form-input"
+                    placeholder="e.g. Alex Rivera"
+                    autocomplete="name"
+                    required
+                    aria-required="true"
+                    aria-describedby="error-name"
+                    minlength="2"
+                    maxlength="80"
+                  />
+                  <span
+                    id="error-name"
+                    class="form-error-msg"
+                    role="alert"
+                    aria-live="polite"
+                  ></span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="field-email" class="form-label">
+                    Work email <span class="required-mark" aria-label="required">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="field-email"
+                    name="email"
+                    class="form-input"
+                    placeholder="you@company.com"
+                    autocomplete="email"
+                    required
+                    aria-required="true"
+                    aria-describedby="error-email"
+                    inputmode="email"
+                  />
+                  <span
+                    id="error-email"
+                    class="form-error-msg"
+                    role="alert"
+                    aria-live="polite"
+                  ></span>
+                </div>
+
+                <!-- Company (optional) -->
+                <div class="form-group">
+                  <label for="field-company" class="form-label">
+                    Company <span class="caption form-label__optional">(optional)</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="field-company"
+                    name="company"
+                    class="form-input"
+                    placeholder="Acme Corp"
+                    autocomplete="organization"
+                    maxlength="100"
+                    aria-describedby="error-company"
+                  />
+                  <span
+                    id="error-company"
+                    class="form-error-msg"
+                    role="alert"
+                    aria-live="polite"
+                  ></span>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                  <label for="field-message" class="form-label">
+                    Message <span class="required-mark" aria-label="required">*</span>
+                  </label>
+                  <textarea
+                    id="field-message"
+                    name="message"
+                    class="form-textarea"
+                    placeholder="Tell us about your team size, current setup, and what you'd like to improve…"
+                    required
+                    aria-required="true"
+                    aria-describedby="error-message message-char-count"
+                    minlength="10"
+                    maxlength="2000"
+                    rows="5"
+                  ></textarea>
+                  <div class="form-char-counter">
+                    <span
+                      id="error-message"
+                      class="form-error-msg"
+                      role="alert"
+                      aria-live="polite"
+                    ></span>
+                    <span
+                      id="message-char-count"
+                      class="caption"
+                      aria-label="Character count"
+                      aria-live="polite"
+                    >0 / 2000</span>
+                  </div>
+                </div>
+
+                <!-- Submit -->
+                <button
+                  type="submit"
+                  id="form-submit"
+                  class="btn btn--primary btn--lg w-full"
+                  aria-label="Submit contact form to CodeFlow"
+                >
+                  Send Message
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                    <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+
+                <p class="form-privacy-note">
+                  By submitting, you agree to our
+                  <a href="#contact">Privacy Policy</a>.
+                  We'll respond within one business day.
+                </p>
+
+              </div><!-- /stack -->
+            </form><!-- /contact-form -->
+
+          </div><!-- /form-card -->
+        </div><!-- /contact-layout -->
+      </div><!-- /container -->
+    </section><!-- /contact -->
+
+  </main><!-- /main -->
+
+  <!-- ==================================================================
+       SIGN IN MODAL
+  =================================================================== -->
+  <dialog
+    id="signin-modal"
+    class="modal"
+    aria-labelledby="signin-modal-title"
+    aria-modal="true"
+  >
+    <div class="modal__card">
+      <button
+        class="modal__close"
+        id="signin-modal-close"
+        type="button"
+        aria-label="Close sign in dialog"
+      >&times;</button>
+
+      <div class="modal__header">
+        <span class="nav__logo-mark" aria-hidden="true">CF</span>
+        <h2 id="signin-modal-title" class="modal__title">Welcome back</h2>
+        <p class="modal__subtitle">Sign in to your CodeFlow account</p>
+      </div>
+
+      <form id="signin-form" novalidate aria-label="Sign in to CodeFlow">
+        <div class="stack stack--md">
+
+          <div class="form-group">
+            <label for="signin-email" class="form-label">Work email <span class="required-mark" aria-label="required">*</span></label>
+            <input
+              type="email"
+              id="signin-email"
+              name="email"
+              class="form-input"
+              placeholder="you@company.com"
+              autocomplete="email"
+              required
+              aria-required="true"
+              aria-describedby="signin-error-email"
+              inputmode="email"
+            />
+            <span id="signin-error-email" class="form-error-msg" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="signin-password" class="form-label">Password <span class="required-mark" aria-label="required">*</span></label>
+              <a href="#contact" class="form-forgot-link">Forgot password?</a>
+            </div>
+            <div class="form-input-wrap">
+              <input
+                type="password"
+                id="signin-password"
+                name="password"
+                class="form-input"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+                aria-required="true"
+                aria-describedby="signin-error-password"
+                minlength="8"
+              />
+              <button type="button" class="form-toggle-password" aria-label="Show password" id="toggle-password">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span id="signin-error-password" class="form-error-msg" role="alert" aria-live="polite"></span>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--lg w-full" id="signin-submit">
+            Sign In
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+        </div>
+      </form>
+
+      <p class="modal__footer-note">
+        Don't have an account?
+        <a href="#pricing" class="modal__switch-link" id="signin-to-trial">Start free trial →</a>
+      </p>
+
+      <div class="modal__divider" aria-hidden="true"><span>or continue with</span></div>
+      <div class="modal__sso-options">
+        <button type="button" class="btn btn--secondary btn--sm modal__sso-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          Google
+        </button>
+        <button type="button" class="btn btn--secondary btn--sm modal__sso-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </button>
+      </div>
+
+    </div><!-- /modal__card -->
+  </dialog><!-- /signin-modal -->
+
+  <!-- ==================================================================
+       FOOTER
+  =================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer__top">
+
+        <!-- Brand column -->
+        <div>
+          <a href="#hero" class="footer__brand-logo" aria-label="CodeFlow home">
+            <span class="nav__logo-mark" aria-hidden="true">CF</span>
+            <span class="footer__brand-name">CodeFlow</span>
+          </a>
+          <p class="footer__brand-desc">
+            AI-powered code review that helps engineering teams ship with speed
+            and confidence. Built for developers, loved by CTOs.
+          </p>
+          <!-- Social links in brand column -->
+          <div class="footer__socials" style="margin-top: var(--space-6);" aria-label="CodeFlow social media links">
+            <a
+              href="https://github.com"
+              class="footer__social-link"
+              aria-label="Follow CodeFlow on GitHub"
+            >
+              <!-- GitHub SVG icon -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com"
+              class="footer__social-link"
+              aria-label="Follow CodeFlow on X (Twitter)"
+            >
+              <!-- X/Twitter SVG icon -->
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.732-8.835L1.254 2.25H8.08l4.259 5.631L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/>
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com"
+              class="footer__social-link"
+              aria-label="Follow CodeFlow on LinkedIn"
+            >
+              <!-- LinkedIn SVG icon -->
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product links -->
+        <nav aria-label="Product links">
+          <p class="footer__col-title">Product</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="#about">Features</a></li>
+            <li><a href="#work">Showcase</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Changelog</a></li>
+            <li><a href="#contact">Roadmap</a></li>
+          </ul>
+        </nav>
+
+        <!-- Company links -->
+        <nav aria-label="Company links">
+          <p class="footer__col-title">Company</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="#contact">About Us</a></li>
+            <li><a href="#contact">Blog</a></li>
+            <li><a href="#contact">Careers</a></li>
+            <li><a href="#testimonials">Customers</a></li>
+            <li><a href="#contact">Press Kit</a></li>
+          </ul>
+        </nav>
+
+        <!-- Resources links -->
+        <nav aria-label="Resources links">
+          <p class="footer__col-title">Resources</p>
+          <ul class="footer__nav-list" role="list">
+            <li><a href="#contact">Documentation</a></li>
+            <li><a href="#contact">API Reference</a></li>
+            <li><a href="#contact">Status</a></li>
+            <li><a href="#contact">Security</a></li>
+            <li><a href="#contact">Support</a></li>
+          </ul>
+        </nav>
+
+      </div><!-- /footer__top -->
+
+      <!-- Footer bottom bar -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          &copy; <span id="copyright-year">2025</span>
+          <a href="#hero">CodeFlow, Inc.</a>
+          All rights reserved.
+          &nbsp;&middot;&nbsp;
+          <a href="#contact">Privacy Policy</a>
+          &nbsp;&middot;&nbsp;
+          <a href="#contact">Terms of Service</a>
+          &nbsp;&middot;&nbsp;
+          <a href="#contact">Cookie Policy</a>
+        </p>
+
+        <div class="footer__made-with">
+          <span class="footer__made-with-label">Made with ♥ for</span>
+          <span class="footer__made-with-brand">DecodeLabs Project 1</span>
+        </div>
+      </div><!-- /footer__bottom -->
+
+    </div><!-- /container -->
+  </footer><!-- /footer -->
+
+  <!-- ==================================================================
+       SCRIPTS — defer loaded, execute after HTML parsed
+  =================================================================== -->
+  <script src="assets/js/main.js"       defer></script>
+  <script src="assets/js/navigation.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/form.js"       defer></script>
+  <script src="assets/js/modal.js"      defer></script>
+
+</body>
+</html>
